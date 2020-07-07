@@ -1,7 +1,7 @@
 class TeamMembersController < ApplicationController
 
   def create
-    team_member =  TeamMember.create(team_member_params)
+    team_member =  TeamMember.find_or_create_by(team_member_params)
     render json: team_member, include: [:project, :member]
   end
 
