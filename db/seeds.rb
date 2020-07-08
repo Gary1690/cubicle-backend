@@ -13,5 +13,5 @@ Project.create(name:"Project Ava",deadline:"Jun 23, 2021")
 
 
 15.times do 
-  Member.create(name:Faker::Name.unique.name,image_url:Faker::Avatar.unique.image,role:Faker::Job.title)
+  Member.create(name:Faker::Name.unique.name,image_url:Faker::Avatar.unique.image,role:Faker::Job.unique.title)
 end
