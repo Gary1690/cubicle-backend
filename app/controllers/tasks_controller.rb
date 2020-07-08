@@ -7,6 +7,15 @@ class TasksController < ApplicationController
     render json: task, include: [:members]
   end
 
+  def update
+    task = Task.find_by(id:params[:id])
+    task.assigments.each{|assignment| assignment.destroy}
+    members = Member.find(params[:memberIds])
+    task.members << members
+    task.update(task_params)
+    render json: task, include: [:members]
+  end
+
   private
   def task_params
     params.require(:task).permit(:name,:priority,:project_id)
