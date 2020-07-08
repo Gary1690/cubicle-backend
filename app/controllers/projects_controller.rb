@@ -4,7 +4,7 @@ class ProjectsController < ApplicationController
     # render json: projects,include: [:members,:tasks]
     render json: projects.to_json(:include => {
       :members => {:only => [:id,:name, :role,:image_url]},
-      :tasks => {:only => [:id,:name, :priority],:include=>[:members]}
+      :tasks => {:only => [:id,:name, :priority,:project_id],:include=>[:members]}
     })
   end
 
