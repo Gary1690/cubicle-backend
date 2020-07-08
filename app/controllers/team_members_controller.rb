@@ -5,6 +5,12 @@ class TeamMembersController < ApplicationController
     render json: team_member, include: [:project, :member]
   end
 
+  def destroy 
+    team_member =  TeamMember.find(params[:id])
+    team_member.member.assigments.each{|assigment| assigment.destroy}
+    team_member.destroy
+    render json: team_member, include: [:project, :member]
+  end
 
   private 
   def team_member_params
