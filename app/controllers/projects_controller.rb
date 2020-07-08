@@ -1,7 +1,11 @@
 class ProjectsController < ApplicationController
   def index
     projects =  Project.all.sort_by{|x|x.id} 
-    render json: projects,include: [:members]
+    # render json: projects,include: [:members,:tasks]
+    render json: projects.to_json(:include => {
+      :members => {:only => [:id,:name, :role,:image_url]},
+      :tasks => {:only => [:id,:name, :priority],:include=>[:members]}
+    })
   end
 
   def create
