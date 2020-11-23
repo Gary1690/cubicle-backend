@@ -10,7 +10,10 @@ class ProjectsController < ApplicationController
 
   def create
     project = Project.create(project_params)
-    render json: project
+    render json: project.to_json(:include => {
+      :team_members => {:only => [:id,:project_id,:member_id],:include=>[:member]},
+      :tasks => {:only => [:id,:name, :priority,:project_id],:include=>[:members]}
+    })
   end
 
   def update 
