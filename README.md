@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**BARBS
 
-Things you may want to cover:
+Project Management Single Page Application App created using Javascript with Rails backend. Allows you to create and manage projects, register project members and  create project tasks and assigned them to a member or members of the project.
 
-* Ruby version
+**Front-End Repo
+https://github.com/Gary1690/cubicle-frontend
 
-* System dependencies
+**Requires
 
-* Configuration
+ruby --version '2.6.1'
 
-* Database creation
+rails --version '6.0.3'
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Demo Link
+https://www.youtube.com/watch?v=xUm2YRbeoJI
